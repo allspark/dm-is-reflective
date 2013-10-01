@@ -118,7 +118,7 @@ module DmIsReflective::DataObjectsAdapter
     model.__send__(:include, Resource)
     model.is(:reflective)
     model.storage_names[:default] = storage
-    scope.const_set(Inflector.classify(storage), model)
+    scope.const_set(Inflector.classify(storage.gsub(/^_*/, '')), model)
     model.__send__(:reflect, /.*/)
     model
   end
