@@ -99,6 +99,7 @@ class #{scope}::#{name} < #{superclass}
       "property :#{prop.name}, #{prop.class.name}, #{prop.options}"
     end.join("\n")
   }
+  #{"storage_names[:default] = #{storage_names[:default]}" unless storage_names[:default].nil?}
 end
 RUBY
     end
